@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 
 
 void main() {
-  debugPaintSizeEnabled = true;
+  debugPaintSizeEnabled = false;
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
