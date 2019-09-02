@@ -6,6 +6,7 @@ import 'package:flutter_app/codelang/page/MsgPage.dart';
 import 'package:flutter_app/codelang/page/HomePage.dart';
 import 'package:flutter_app/codelang/page/ShopPage.dart';
 import 'package:flutter_app/codelang/page/MyPage.dart';
+import 'package:flutter_app/codelang/page/RowColumn.dart';
 import 'package:flutter_app/codelang/page/TestPage.dart';
 import 'package:flutter_app/codelang/page/ExpandPage.dart';
 import 'package:flutter_app/codelang/widget/Demo1.dart';
@@ -17,7 +18,6 @@ import 'package:flutter_app/codelang/navigator/page_route.dart';
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new MainPageWidget();
   }
 }
@@ -29,8 +29,8 @@ class MainPageWidget extends StatefulWidget {
 
 class _MainPageState extends State<MainPageWidget> {
   int _tabIndex = 0;
-  var tabImages;
-  var appBarTitles = ["首页", "测试", "消息", "我的"];
+  var tabImages = [];
+  var appBarTitles = ["首页", "测试", "消息", "我的", "加班"];
 
   /*
   * 根据image路径获取图片
@@ -71,7 +71,7 @@ class _MainPageState extends State<MainPageWidget> {
    * 存储的四个页面，和Fragment一样
    */
 
-  var _bodys;
+  List _bodys;
   void initData() {
     /*
       tabbar图片
@@ -93,12 +93,17 @@ class _MainPageState extends State<MainPageWidget> {
         getTabImage('assets/images/my.png'),
         getTabImage('assets/images/my_press.png')
       ],
+      [
+        getTabImage('assets/images/msg.png'),
+        getTabImage('assets/images/msg_press.png')
+      ],
     ];
     _bodys = [
       new HomePage(),
       new MsgPage(),
       new TestPage(),
-      new PageWidget()
+      new PageWidget(),
+      new RowColumn()
     ];
   }
 
@@ -107,15 +112,6 @@ class _MainPageState extends State<MainPageWidget> {
     // TODO: implement build
     initData();
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("主页"),
-      ),
-      // body: RaisedButton(
-      //   child: Text("跳转"),
-      //   onPressed: () => {
-      //     Navigator.pushNamed(context, Page.EXPAND_PAGE)
-      //   },
-      // ),
       body: _bodys[_tabIndex],
       bottomNavigationBar: new BottomNavigationBar(
         items: <BottomNavigationBarItem>[
@@ -127,6 +123,8 @@ class _MainPageState extends State<MainPageWidget> {
               icon: getTabIcon(2), title: getTabTitle(2)),
           new BottomNavigationBarItem(
               icon: getTabIcon(3), title: getTabTitle(3)),
+          new BottomNavigationBarItem(
+              icon: getTabIcon(4), title: getTabTitle(4)),
         ],
         //设置显示的模式
         type: BottomNavigationBarType.fixed,

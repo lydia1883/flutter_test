@@ -77,7 +77,6 @@ class TestState extends State<TestPage> {
       ),
     );
 
-
     Widget textSection = new Container(
       padding: const EdgeInsets.all(32.0),
       child: new Text(
@@ -88,18 +87,23 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
       ),
     );
     
-    return new ListView(
-      children: [
-        new Image.asset(
-          'assets/images/lake.jpg',
-          width: 600.0,
-          height: 240.0,
-          fit: BoxFit.cover,
-        ),
-        titleSection,
-        buttonSection,
-        textSection,
-      ],
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text("测试页面"),
+      ),
+      body: new ListView(
+        children: [
+          new Image.asset(
+            'assets/images/lake.jpg',
+            width: 600.0,
+            height: 240.0,
+            fit: BoxFit.cover,
+          ),
+          titleSection,
+          buttonSection,
+          textSection,
+        ],
+      )
     );
   }
 }

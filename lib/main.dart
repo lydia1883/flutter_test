@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:flutter_app/codelang/MainPage.dart';
+// import 'package:flutter_app/codelang/MainPage.dart';
+import 'package:flutter_app/codelang/page/bottomnavigatorbar.dart';
 import 'package:flutter_app/codelang/navigator/page_route.dart';
-import 'dart:developer';
+// import 'dart:developer';
 import 'package:flutter/rendering.dart';
 
 
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
       // },
       // home: new RandomWords(),
       // home: MyHomePage(title: 'My Flutter Demo Home Page App'),
-      home: MainPage()
+      home: BottomNavigationWidget()
+      // MainPage()
     );
   }
 }
